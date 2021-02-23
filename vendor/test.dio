@@ -1,6 +1,6 @@
-<mxfile host="65bd71144e" modified="2021-02-23T08:09:22.200Z" agent="5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.53.2 Chrome/87.0.4280.141 Electron/11.2.1 Safari/537.36" etag="D_h3wJUV6FogG09Do9v4" version="14.2.4" type="embed" pages="2">
+<mxfile host="65bd71144e" modified="2021-02-23T08:43:40.096Z" agent="5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.53.2 Chrome/87.0.4280.141 Electron/11.2.1 Safari/537.36" etag="GjCM-91lSuDLTYYObJ5M" version="14.2.4" type="embed" pages="2">
     <diagram id="ZZAoKlT9BtyfXRQJVkFT" name="ページ1">
-        <mxGraphModel dx="1256" dy="1804" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1256" dy="1745" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -40,7 +40,7 @@
                 <mxCell id="4" value="users" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;rounded=0;swimlaneLine=1;glass=0;" parent="1" vertex="1">
                     <mxGeometry x="70" y="-1000" width="160" height="386" as="geometry"/>
                 </mxCell>
-                <mxCell id="17" value="・name" style="whiteSpace=wrap;html=1;align=center;rounded=0;glass=0;" parent="4" vertex="1">
+                <mxCell id="17" value="・nickname" style="whiteSpace=wrap;html=1;align=center;rounded=0;glass=0;" parent="4" vertex="1">
                     <mxGeometry y="26" width="160" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="18" value="・email" style="whiteSpace=wrap;html=1;align=center;rounded=0;glass=0;" parent="4" vertex="1">
@@ -74,7 +74,7 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="11" value="items" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;rounded=0;glass=0;" parent="1" vertex="1">
-                    <mxGeometry x="630" y="-1030" width="160" height="346" as="geometry"/>
+                    <mxGeometry x="630" y="-1030" width="160" height="386" as="geometry"/>
                 </mxCell>
                 <mxCell id="24" value="・title" style="whiteSpace=wrap;html=1;align=center;rounded=0;glass=0;" parent="11" vertex="1">
                     <mxGeometry y="26" width="160" height="40" as="geometry"/>
@@ -94,11 +94,14 @@
                 <mxCell id="50" value="・area_id" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="11">
                     <mxGeometry y="226" width="160" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="51" value="・days_id" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="11">
+                <mxCell id="51" value="・day_id" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="11">
                     <mxGeometry y="266" width="160" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="37" value="・user_id" style="whiteSpace=wrap;html=1;align=center;rounded=0;glass=0;" parent="11" vertex="1">
+                <mxCell id="59" value="Entity" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="11">
                     <mxGeometry y="306" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="・user_id" style="whiteSpace=wrap;html=1;align=center;rounded=0;glass=0;" parent="11" vertex="1">
+                    <mxGeometry y="346" width="160" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="16" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" target="11" edge="1" source="4">
                     <mxGeometry width="100" height="100" relative="1" as="geometry">

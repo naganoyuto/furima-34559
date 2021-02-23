@@ -2,7 +2,7 @@
 ## usersテーブル
 |Column                     | Type |Options     |
 |---------------------------- | -------- | ------------- |
-| name                      | string | null: false |
+| nickname                      | string | null: false |
 | email                       | string | null: false, unique: true |
 | encrypted_password | string | null:false |
 | birthday                  | date | null: false |
@@ -24,7 +24,8 @@
 | condition_id | integer        | null: false                           |
 | burden_id     | integer        |null: false                         |
 | area_id         | integer        |null: false                        |
-| days_id         | integer        | null: false                    |
+| day_id         | integer        | null: false                    |
+| price          | integer         | null: false                     |
 | user        | references |null: false, foreign_key: true |
 
 
