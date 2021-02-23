@@ -33,7 +33,7 @@
  - belongs_to :user
  -  has_one :buyer
 
- ## buyerテーブル
+ ## buyersテーブル
 | Colum | Typre         | Options                           |
 | --------- | ------------- | ------------------------------------ |
 | user    | references | null: false, foreign_key: true |
@@ -42,7 +42,7 @@
  - belongs_to :user
  - belongs_to :item
  - has_one : shipping_address
- ### shipping_addresses
+ ### shipping_addressesテーブル
  | Colum              | Type        | Options                               |
  | --------------------- | ------------- | -------------------------------------- |
  | postal_code      | string    | null: false                              |
