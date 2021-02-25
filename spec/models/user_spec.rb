@@ -68,7 +68,6 @@ RSpec.describe User, type: :model do
       it 'emailでは@を含まないと登録できない' do
         @user.email = 'test.test'
         @user.valid?
-        binding.pry
         expect(@user.errors.full_messages).to include("Email is invalid")
       end
       it 'passwordが5文字以下では登録できない' do
@@ -100,6 +99,13 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include ("Password には英字（半角）と数字（半角）の両方を含めて設定してください")
       end
 
+      it 'passwordが全角では登録できない' do
+        @user.password = 'aaa１１１'
+        @user.password_confirmation = 'aaa１１１'
+        @user.valid?
+        expect(@user.errors.full_messages).to include ("Password には英字（半角）と数字（半角）の両方を含めて設定してください")
+      end
+
       it 'last_nameが半角英文字では登録できない' do
         @user.last_name = 'aaa'
         @user.valid?
@@ -107,7 +113,7 @@ RSpec.describe User, type: :model do
       end
 
       it 'last_nameが半角数字では登録できない' do
-        @user.name = '111'
+        @user.last_name = '111'
         @user.valid?
         expect(@user.errors.full_messages).to include("Last name には、全角（漢字・ひらがな・カタカナ)で入力してください")
       end
@@ -137,9 +143,9 @@ RSpec.describe User, type: :model do
       end
 
       it 'name_katakanaが英文字では登録できない' do
-        @user.name = 'aaa'
+        @user.name_katakana = 'aaa'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name katakana にはカタカナのみで入力してください")
+        expect(@user.errors.full_messages).to include("Name katakana にはカタカナのみで入力してください")
       end
     end
   end
