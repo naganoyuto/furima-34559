@@ -73,6 +73,30 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price には¥300~¥9,999,999かつ半角数字で入力してください")
       end
 
+      it '販売価格が半角英数字混合では登録できない' do
+        @item.price = '188ddd'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price には¥300~¥9,999,999かつ半角数字で入力してください")
+      end
+
+      it '販売価格が半角英字のみでは登録できない' do
+        @item.price = 'ddddd'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price には¥300~¥9,999,999かつ半角数字で入力してください")
+      end
+
+      it '販売価格が299円以下では登録できない' do
+        @item.price ='299'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price には¥300~¥9,999,999かつ半角数字で入力してください")
+      end
+
+      it '販売価格が10000000では登録できない' do
+        @item.price = '10000000'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price には¥300~¥9,999,999かつ半角数字で入力してください")
+      end
+
 
       it 'ユーザーが紐付いていなければ投稿できない' do
         @item.user = nil
