@@ -1,15 +1,15 @@
 class BuyerShippingAddress
-  include ActiveModel: :Model
+  include ActiveModel::Model
   attr_accessor :user_id, :item_id, :postal_code, :prefecture_id, :municipalities, :address, :builing_name, :phone_number
 
   with_options presence: true do
     validates :user_id
     validates :item_id
-    validates :postal_code, numericality: {with: /\A\d{3}[-]\d{4}\z/, message: "ではハイフンアリで入力してください"}
+    validates :postal_code, format: {with: /\A\d{3}[-]\d{4}\z/, message: "ではハイフンありで入力してください"}
     validates :prefecture_id
-   validates :municipalities
+    validates :municipalities
     validates :address
-    validates :phone_number, numericality: {with: /\A\d{10,11}\z/, message: "では11桁以内の数値のみで入力してください"}
+    validates :phone_number, length: { maximum: 11, message:"では11桁以内で入力してください" }, format: {with: /\A[0-9]\d+\z/, message: "では数値で入力してください"}
   end
 
 
