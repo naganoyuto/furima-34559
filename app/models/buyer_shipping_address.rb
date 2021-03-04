@@ -1,8 +1,9 @@
 class BuyerShippingAddress
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :postal_code, :prefecture_id, :municipalities, :address, :builing_name, :phone_number
+  attr_accessor :token, :user_id, :item_id, :postal_code, :prefecture_id, :municipalities, :address, :builing_name, :phone_number
 
   with_options presence: true do
+    validates :token
     validates :user_id
     validates :item_id
     validates :postal_code, format: {with: /\A\d{3}[-]\d{4}\z/, message: "ではハイフンありで入力してください"}
