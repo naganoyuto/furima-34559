@@ -1,20 +1,21 @@
 class BuyersController < ApplicationController
-
+  before_action :authenticate_user!
+  before_action :sold_out_item, only: [:index]
   def index
-    @item = Item.find(params[:item_id])
+    redirect_to root_path  if current_user.id == @item.user_id
     @buyer_shipping_address = BuyerShippingAddress.new
   end
   
   def create
-    @item = Item.find(params[:item_id])
-    @buyer_shipping_address = BuyerShippingAddress.new(buyer_params)
-    if @buyer_shipping_address.valid?
-      pay_item
-      @buyer_shipping_address.save
-      redirect_to root_path
-    else
-      render :index
-    end
+      @item = Item.find(params[:item_id])
+      @buyer_shipping_address = BuyerShippingAddress.new(buyer_params)
+      if @buyer_shipping_address.valid?
+        pay_item
+        @buyer_shipping_address.save
+        redirect_to root_path
+      else
+        render :index
+      end
   end
 
   private
@@ -29,5 +30,10 @@ class BuyersController < ApplicationController
       card: buyer_params[:token],    
       currency: 'jpy'                 
     )
+  end
+
+  def sold_out_item
+    @item = Item.find(params[:item_id])
+    redirect_to root_path if @item.buyer.present?
   end
 end
