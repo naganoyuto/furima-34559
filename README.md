@@ -55,4 +55,3 @@
  | buyer               | references | null: false, foreign_key: true | 
 ### Associaton
 - belongs_to :buyer
-
